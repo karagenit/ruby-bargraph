@@ -18,4 +18,11 @@ class TestBar < Test::Unit::TestCase
     bar.print
   end
 
+  def test_set_mode
+    bar = Graph::Bar.new [5, 4, 3]
+    bar.mode Graph::PrintMode::SCALE
+    assert_equal(bar.mode, Graph::PrintMode::SCALE)
+    bar.print
+  end
+
 end
