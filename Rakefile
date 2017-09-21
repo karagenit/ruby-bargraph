@@ -17,6 +17,7 @@ end
 
 task :test do
     sh "rubocop lib/graph"
+    sh "./test/test-bar.rb"
 end
 
 task :publish do
