@@ -89,6 +89,8 @@
 
   <section class="description">
     
+<p>This class allows the display of data arrays in bar graph format</p>
+
   </section>
 
   
@@ -123,13 +125,13 @@
 
         <div class="method-description">
           
-          
+          <p>Allows optionally setting the initial dataset as a parameter</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 3</span>
+            <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">data</span> = <span class="ruby-keyword">nil</span>)
   <span class="ruby-ivar">@data</span> = <span class="ruby-identifier">data</span>
 <span class="ruby-keyword">end</span></pre>
@@ -164,13 +166,13 @@
 
         <div class="method-description">
           
-          
+          <p>Get or Set the data array</p>
           
           
 
           
           <div class="method-source-code" id="data-source">
-            <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 7</span>
+            <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 19</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">data</span>(<span class="ruby-identifier">data</span> = <span class="ruby-keyword">nil</span>)
   <span class="ruby-ivar">@data</span> = <span class="ruby-identifier">data</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">nil?</span>
   <span class="ruby-ivar">@data</span>
@@ -198,13 +200,13 @@
 
         <div class="method-description">
           
-          
+          <p>Print the bar graph to stdout</p>
           
           
 
           
           <div class="method-source-code" id="print-source">
-            <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 12</span>
+            <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">print</span>
   <span class="ruby-ivar">@data</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">count</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">printf</span> <span class="ruby-string">&quot;%02d|%s\n&quot;</span>, <span class="ruby-identifier">index</span>, (<span class="ruby-string">&#39;#&#39;</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">count</span>)
