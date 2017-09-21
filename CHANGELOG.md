@@ -2,6 +2,13 @@
 
 ## [Unreleased](https://github.com/karagenit/ruby-bargraph/tree/HEAD)
 
+[Full Changelog](https://github.com/karagenit/ruby-bargraph/compare/v1.0.0...HEAD)
+
+**Closed issues:**
+
+- Set Scale [\#7](https://github.com/karagenit/ruby-bargraph/issues/7)
+
+## [v1.0.0](https://github.com/karagenit/ruby-bargraph/tree/v1.0.0) (2017-09-21)
 **Closed issues:**
 
 - Documentation [\#3](https://github.com/karagenit/ruby-bargraph/issues/3)
