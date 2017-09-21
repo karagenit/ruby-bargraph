@@ -143,9 +143,9 @@
           <div class="method-source-code" id="new-source">
             <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 20</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">data</span> = <span class="ruby-keyword">nil</span>)
-  <span class="ruby-ivar">@data</span> = <span class="ruby-identifier">data</span>
-  <span class="ruby-ivar">@mode</span> = <span class="ruby-constant">PrintMode</span><span class="ruby-operator">::</span><span class="ruby-constant">NOSCALE</span>
-  <span class="ruby-ivar">@scale</span> = <span class="ruby-value">1</span>
+  <span class="ruby-identifier">data</span>(<span class="ruby-identifier">data</span>)
+  <span class="ruby-identifier">mode</span>(<span class="ruby-constant">PrintMode</span><span class="ruby-operator">::</span><span class="ruby-constant">NOSCALE</span>)
+  <span class="ruby-identifier">scale</span>(<span class="ruby-value">1</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -294,7 +294,7 @@
 
           
           <div class="method-source-code" id="print_autoscale-source">
-            <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 69</span>
+            <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 67</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">print_autoscale</span>
   <span class="ruby-comment"># TODO: call print_scale with max divided by console width</span>
 <span class="ruby-keyword">end</span></pre>
@@ -322,15 +322,12 @@
         <div class="method-description">
           
           <p>Print the bar graph to stdout</p>
-
-<p>TODO: should simply call <a
-href="Bar.html#method-i-print_scale">#print_scale</a> with scale of 1</p>
           
           
 
           
           <div class="method-source-code" id="print_noscale-source">
-            <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 65</span>
+            <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 63</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">print_noscale</span>
   <span class="ruby-identifier">print_scale</span> <span class="ruby-value">1</span>
 <span class="ruby-keyword">end</span></pre>
@@ -364,7 +361,7 @@ as 1 character</p>
 
           
           <div class="method-source-code" id="print_scale-source">
-            <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 77</span>
+            <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 75</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">print_scale</span>(<span class="ruby-identifier">scale</span> = <span class="ruby-keyword">nil</span>)
   <span class="ruby-identifier">scale</span> <span class="ruby-operator">||=</span> <span class="ruby-ivar">@scale</span>
   <span class="ruby-ivar">@data</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">count</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>

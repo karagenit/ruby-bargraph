@@ -18,9 +18,9 @@ module Graph
     # Allows optionally setting the initial dataset as a parameter
     #
     def initialize(data = nil)
-      @data = data
-      @mode = PrintMode::NOSCALE
-      @scale = 1
+      data(data)
+      mode(PrintMode::NOSCALE)
+      scale(1)
     end
 
     ##
@@ -59,8 +59,6 @@ module Graph
 
     ##
     # Print the bar graph to stdout
-    #
-    # TODO: should simply call print_scale with scale of 1
     #
     def print_noscale
       print_scale 1
