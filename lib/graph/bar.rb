@@ -14,7 +14,6 @@ module Graph
   # This class allows the display of data arrays in bar graph format
   #
   class Bar
-    include PrintMode
     ##
     # Allows optionally setting the initial dataset as a parameter
     #
