@@ -6,8 +6,17 @@ module Graph
   # Modes for printing the graph
   #
   module PrintMode
+    ##
+    # No scale factor
+    #
     NOSCALE = 1
+    ##
+    # Automatic scale factor
+    #
     AUTOSCALE = 2
+    ##
+    # Manually set scale factor
+    #
     SCALE = 3
   end
   ##
@@ -39,11 +48,17 @@ module Graph
       @mode
     end
 
+    ##
+    # Get or Set th print scale
+    #
     def scale(scale = nil)
       @scale = scale unless scale.nil?
       @scale
     end
 
+    ##
+    # Print the graph to stdout, based on the print mode & scale
+    #
     def print(mode = nil)
       case mode || @mode
       when PrintMode::NOSCALE
@@ -58,14 +73,18 @@ module Graph
     end
 
     ##
-    # Print the bar graph to stdout
+    # Print the graph without any scaling
     #
     def print_noscale
       print_scale 1
     end
 
+    ##
+    # Print the graph, scaled automatically by window size
+    #
     def print_autoscale
       # TODO: call print_scale with max divided by console width
+      print_scale 1
     end
 
     ##
