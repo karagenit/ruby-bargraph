@@ -20,6 +20,7 @@ module Graph
     def initialize(data = nil)
       @data = data
       @mode = PrintMode::NOSCALE
+      @scale = 1
     end
 
     ##
@@ -38,13 +39,45 @@ module Graph
       @mode
     end
 
+    def scale(scale = nil)
+      @scale = scale unless scale.nil?
+      @scale
+    end
+
+    def print(mode = nil)
+      case mode || @mode
+      when PrintMode::NOSCALE
+        print_noscale
+      when PrintMode::AUTOSCALE
+        print_autoscale
+      when PrintMode::SCALE
+        print_scale
+      else
+        raise ArgumentError, 'Invalid Print Mode', caller
+      end
+    end
+
     ##
     # Print the bar graph to stdout
     #
-    def print
+    # TODO: should simply call print_scale with scale of 1
+    #
+    def print_noscale
       @data.each_with_index do |count, index|
         printf "%02d|%s\n", index, ('#' * count)
       end
+    end
+
+    def print_autoscale
+      # TODO: call print_scale with max divided by console width
+    end
+
+    ##
+    # Prints graph with a scale. Scale of 10 means every 10 values
+    # is displayed as 1 character
+    #
+    def print_scale(scale = nil)
+      # scale ||= @scale
     end
   end
 end
