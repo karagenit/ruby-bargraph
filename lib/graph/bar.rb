@@ -32,7 +32,11 @@ module Graph
     # Get or Set the data array
     #
     def data(data = nil)
-      @data = data unless data.nil?
+      unless data.nil?
+        raise ArgumentError, 'Data Must Be Enumerable!', caller unless
+          data.is_a? Enumerable
+        @data = data
+      end
       @data
     end
 

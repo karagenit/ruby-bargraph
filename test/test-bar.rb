@@ -10,10 +10,15 @@ class TestBar < Test::Unit::TestCase
     assert_equal(bar.data, [5, 4, 3])
   end
 
-  def test_set
+  def test_set_data
     bar = Graph::Bar.new
     bar.data [5, 4, 3]
     assert_equal(bar.data, [5, 4, 3])
+  end
+
+  def test_set_data_bad
+    bar = Graph::Bar.new
+    assert_raise(ArgumentError) { bar.data 5 }
   end
 
   def test_set_mode
@@ -27,6 +32,11 @@ class TestBar < Test::Unit::TestCase
     bar.mode Graph::PrintMode::SCALE
     bar.scale 3
     assert_equal(bar.scale, 3)
+  end
+
+  def test_set_scale_bad
+    bar = Graph::Bar.new [5, 4, 3]
+    assert_raise(ArgumentError) { bar.print 0 }
   end
 
   def test_print
