@@ -8,20 +8,38 @@ class TestBar < Test::Unit::TestCase
   def test_init
     bar = Graph::Bar.new [5, 4, 3]
     assert_equal(bar.data, [5, 4, 3])
-    bar.print
   end
 
   def test_set
     bar = Graph::Bar.new
     bar.data [5, 4, 3]
     assert_equal(bar.data, [5, 4, 3])
-    bar.print
   end
 
   def test_set_mode
     bar = Graph::Bar.new [5, 4, 3]
     bar.mode Graph::PrintMode::SCALE
     assert_equal(bar.mode, Graph::PrintMode::SCALE)
+  end
+
+  def test_set_scale
+    bar = Graph::Bar.new [5, 4, 3]
+    bar.mode Graph::PrintMode::SCALE
+    bar.scale 3
+    assert_equal(bar.scale, 3)
+  end
+
+  def test_print
+    bar = Graph::Bar.new [5, 4, 3]
+    print "\nShould Display 5, 4, 3\n"
+    bar.print
+  end
+
+  def test_print_scale
+    bar = Graph::Bar.new [5, 4, 3]
+    bar.mode Graph::PrintMode::SCALE
+    bar.scale 2
+    print "\nShould Display 2, 2, 1\n"
     bar.print
   end
 
