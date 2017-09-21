@@ -294,9 +294,9 @@
 
           
           <div class="method-source-code" id="print_autoscale-source">
-            <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 71</span>
+            <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 69</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">print_autoscale</span>
-  <span class="ruby-comment"># TODO call print_scale with max divided by console width </span>
+  <span class="ruby-comment"># TODO: call print_scale with max divided by console width</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -323,7 +323,7 @@
           
           <p>Print the bar graph to stdout</p>
 
-<p>TODO should simply call <a
+<p>TODO: should simply call <a
 href="Bar.html#method-i-print_scale">#print_scale</a> with scale of 1</p>
           
           
@@ -332,9 +332,7 @@ href="Bar.html#method-i-print_scale">#print_scale</a> with scale of 1</p>
           <div class="method-source-code" id="print_noscale-source">
             <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 65</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">print_noscale</span>
-  <span class="ruby-ivar">@data</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">count</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">printf</span> <span class="ruby-string">&quot;%02d|%s\n&quot;</span>, <span class="ruby-identifier">index</span>, (<span class="ruby-string">&#39;#&#39;</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">count</span>)
-  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">print_scale</span> <span class="ruby-value">1</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -366,9 +364,12 @@ as 1 character</p>
 
           
           <div class="method-source-code" id="print_scale-source">
-            <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 79</span>
+            <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 77</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">print_scale</span>(<span class="ruby-identifier">scale</span> = <span class="ruby-keyword">nil</span>)
-  <span class="ruby-identifier">scale</span> = <span class="ruby-identifier">scale</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@scale</span>
+  <span class="ruby-identifier">scale</span> <span class="ruby-operator">||=</span> <span class="ruby-ivar">@scale</span>
+  <span class="ruby-ivar">@data</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">count</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">printf</span> <span class="ruby-string">&quot;%02d|%s\n&quot;</span>, <span class="ruby-identifier">index</span>, (<span class="ruby-string">&#39;#&#39;</span> <span class="ruby-operator">*</span> (<span class="ruby-identifier">count</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">scale</span>))
+  <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           

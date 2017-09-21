@@ -63,9 +63,7 @@ module Graph
     # TODO: should simply call print_scale with scale of 1
     #
     def print_noscale
-      @data.each_with_index do |count, index|
-        printf "%02d|%s\n", index, ('#' * count)
-      end
+      print_scale 1
     end
 
     def print_autoscale
@@ -77,7 +75,10 @@ module Graph
     # is displayed as 1 character
     #
     def print_scale(scale = nil)
-      # scale ||= @scale
+      scale ||= @scale
+      @data.each_with_index do |count, index|
+        printf "%02d|%s\n", index, ('#' * (count / scale))
+      end
     end
   end
 end
