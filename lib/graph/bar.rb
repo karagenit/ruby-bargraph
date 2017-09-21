@@ -11,13 +11,9 @@ module Graph
     #
     NOSCALE = 1
     ##
-    # Automatic scale factor
-    #
-    AUTOSCALE = 2
-    ##
     # Manually set scale factor
     #
-    SCALE = 3
+    SCALE = 2
   end
   ##
   # This class allows the display of data arrays in bar graph format
@@ -63,8 +59,6 @@ module Graph
       case mode || @mode
       when PrintMode::NOSCALE
         print_noscale
-      when PrintMode::AUTOSCALE
-        print_autoscale
       when PrintMode::SCALE
         print_scale
       else
@@ -76,14 +70,6 @@ module Graph
     # Print the graph without any scaling
     #
     def print_noscale
-      print_scale 1
-    end
-
-    ##
-    # Print the graph, scaled automatically by window size
-    #
-    def print_autoscale
-      # TODO: call print_scale with max divided by console width
       print_scale 1
     end
 
