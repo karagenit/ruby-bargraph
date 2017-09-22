@@ -1,8 +1,7 @@
 # Change Log
 
-## [Unreleased](https://github.com/karagenit/ruby-bargraph/tree/HEAD)
-
-[Full Changelog](https://github.com/karagenit/ruby-bargraph/compare/v1.0.0...HEAD)
+## [v1.1.0](https://github.com/karagenit/ruby-bargraph/tree/v1.1.0) (2017-09-21)
+[Full Changelog](https://github.com/karagenit/ruby-bargraph/compare/v1.0.0...v1.1.0)
 
 **Closed issues:**
 
