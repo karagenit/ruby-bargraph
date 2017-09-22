@@ -222,7 +222,11 @@
           <div class="method-source-code" id="mode-source">
             <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 46</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">mode</span>(<span class="ruby-identifier">mode</span> = <span class="ruby-keyword">nil</span>)
-  <span class="ruby-ivar">@mode</span> = <span class="ruby-identifier">mode</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">mode</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">mode</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&#39;Invalid Print Mode!&#39;</span>, <span class="ruby-identifier">caller</span> <span class="ruby-keyword">unless</span>
+      [<span class="ruby-constant">PrintMode</span><span class="ruby-operator">::</span><span class="ruby-constant">SCALE</span>, <span class="ruby-constant">PrintMode</span><span class="ruby-operator">::</span><span class="ruby-constant">NOSCALE</span>].<span class="ruby-identifier">include?</span> <span class="ruby-identifier">mode</span>
+    <span class="ruby-ivar">@mode</span> = <span class="ruby-identifier">mode</span>
+  <span class="ruby-keyword">end</span>
   <span class="ruby-ivar">@mode</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -254,7 +258,7 @@
 
           
           <div class="method-source-code" id="print-source">
-            <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 62</span>
+            <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 70</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">print</span>(<span class="ruby-identifier">mode</span> = <span class="ruby-keyword">nil</span>)
   <span class="ruby-keyword">case</span> <span class="ruby-identifier">mode</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@mode</span>
   <span class="ruby-keyword">when</span> <span class="ruby-constant">PrintMode</span><span class="ruby-operator">::</span><span class="ruby-constant">NOSCALE</span>
@@ -294,7 +298,7 @@
 
           
           <div class="method-source-code" id="print_noscale-source">
-            <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 76</span>
+            <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 84</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">print_noscale</span>
   <span class="ruby-identifier">print_scale</span> <span class="ruby-value">1</span>
 <span class="ruby-keyword">end</span></pre>
@@ -328,9 +332,10 @@ as 1 character</p>
 
           
           <div class="method-source-code" id="print_scale-source">
-            <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 84</span>
+            <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 92</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">print_scale</span>(<span class="ruby-identifier">scale</span> = <span class="ruby-keyword">nil</span>)
   <span class="ruby-identifier">scale</span> <span class="ruby-operator">||=</span> <span class="ruby-ivar">@scale</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&#39;Invalid Scale&#39;</span>, <span class="ruby-identifier">caller</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">scale</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
   <span class="ruby-ivar">@data</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">count</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">printf</span> <span class="ruby-string">&quot;%02d|%s\n&quot;</span>, <span class="ruby-identifier">index</span>, (<span class="ruby-string">&#39;#&#39;</span> <span class="ruby-operator">*</span> (<span class="ruby-identifier">count</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">scale</span>))
   <span class="ruby-keyword">end</span>
@@ -364,9 +369,13 @@ as 1 character</p>
 
           
           <div class="method-source-code" id="scale-source">
-            <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 54</span>
+            <pre><span class="ruby-comment"># File lib/graph/bar.rb, line 58</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">scale</span>(<span class="ruby-identifier">scale</span> = <span class="ruby-keyword">nil</span>)
-  <span class="ruby-ivar">@scale</span> = <span class="ruby-identifier">scale</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">scale</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">scale</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&#39;Invalid Scale!&#39;</span>, <span class="ruby-identifier">caller</span> <span class="ruby-keyword">unless</span>
+      <span class="ruby-identifier">scale</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-ivar">@scale</span> = <span class="ruby-identifier">scale</span>
+  <span class="ruby-keyword">end</span>
   <span class="ruby-ivar">@scale</span>
 <span class="ruby-keyword">end</span></pre>
           </div>

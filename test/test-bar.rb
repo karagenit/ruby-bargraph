@@ -39,7 +39,12 @@ class TestBar < Test::Unit::TestCase
     assert_equal(bar.scale, 3)
   end
 
-  def test_set_scale_bad
+  def test_set_scale bad
+    bar = Graph::Bar.new [5, 4, 3]
+    assert_raise(ArgumentError) { bar.scale 0 }
+  end
+
+  def test_set_print_bad
     bar = Graph::Bar.new [5, 4, 3]
     assert_raise(ArgumentError) { bar.print 0 }
   end

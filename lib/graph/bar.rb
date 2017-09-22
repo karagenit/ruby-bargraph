@@ -56,7 +56,11 @@ module Graph
     # Get or Set th print scale
     #
     def scale(scale = nil)
-      @scale = scale unless scale.nil?
+      unless scale.nil?
+        raise ArgumentError, 'Invalid Scale!', caller unless
+          scale > 0
+        @scale = scale
+      end
       @scale
     end
 
@@ -87,6 +91,7 @@ module Graph
     #
     def print_scale(scale = nil)
       scale ||= @scale
+      raise ArgumentError, 'Invalid Scale', caller unless scale > 0
       @data.each_with_index do |count, index|
         printf "%02d|%s\n", index, ('#' * (count / scale))
       end
