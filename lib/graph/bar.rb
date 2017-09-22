@@ -44,7 +44,11 @@ module Graph
     # Get or Set the print mode
     #
     def mode(mode = nil)
-      @mode = mode unless mode.nil?
+      unless mode.nil?
+        raise ArgumentError, 'Invalid Print Mode!', caller unless
+          [PrintMode::SCALE, PrintMode::NOSCALE].include? mode
+        @mode = mode
+      end
       @mode
     end
 
